@@ -48,6 +48,7 @@ class LogisticRegressionClassifier():
 			# calculate the gradient and update theta
 			gw = (1.0/self.m) * np.dot(X.T, (self.probas - y))
 			g0 = gw[0] # save the theta_0 gradient calc before regularization
+			print "self.lmbda", self.lmbda, "self.theta.shape", self.theta.shape, "self.m", self.m
 			gw += ((self.lmbda * self.theta) / self.m) # regularize using the lmbda term
 			gw[0] = g0 # restore regularization independent theta_0 gradient calc
 			self.theta -= self.alpha * gw # update parameters
